@@ -33,6 +33,7 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Declaration of proxy methods used to connect to Diceware server application, with
@@ -90,7 +91,9 @@ public interface DicewareService {
    * @return observable result.
    */
   @PUT("passphrases/{id}")
-  Single<Passphrase> put(@Header("Authorization") String token, @Path("id") long id, @Body Passphrase passphrase);
+  Single<Passphrase> put(@Header("Authorization") String token, @Path("id") long id,
+      @Body Passphrase passphrase, @Query("regenerate") boolean regenerate,
+      @Query("length") int length);
 
   /**
    * Sends a new {@link Passphrase} to the server, for adding to the collection associated with the

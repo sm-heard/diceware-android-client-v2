@@ -127,12 +127,12 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   /**
    * Updates the specified {@link Passphrase} instance in the server-based collection.
    */
-  public void updatePassphrase(Passphrase passphrase) {
+  public void updatePassphrase(Passphrase passphrase, boolean regenerate, int length) {
     GoogleSignInAccount account = this.account.getValue();
     if (account != null) {
       String token = getAuthorizationHeader(account);
       pending.add(
-          dicewareService.put(token, passphrase.getId(), passphrase)
+          dicewareService.put(token, passphrase.getId(), passphrase, regenerate, length)
               .subscribeOn(Schedulers.io())
               .subscribe((p) -> refreshPassphrases(account), this.throwable::postValue)
       );

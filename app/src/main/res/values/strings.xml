@@ -12,4 +12,5 @@
   <string name="cancel">Cancel</string>
   <string name="ok">Ok</string>
   <string name="connection_error">Connection to server failed: %s</string>
+  <string name="regenerate">Regenerate</string>
 </resources>

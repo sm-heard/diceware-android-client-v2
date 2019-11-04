@@ -12,14 +12,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/vertical_guideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintGuide_percent="0.5"
+      android:orientation="vertical"/>
+
     <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/passphrase_key_layout"
-      android:layout_width="match_parent"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       app:hintEnabled="true"
       app:hintAnimationEnabled="true"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toStartOf="parent">
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/vertical_guideline">
 
       <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passphrase_key"
@@ -29,6 +37,16 @@
         android:hint="@string/passphrase_key"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+      android:id="@+id/regenerate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/regenerate"
+      app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/passphrase_key_layout"
+      app:layout_constraintBottom_toBottomOf="@id/passphrase_key_layout"/>
 
     <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/passphrase_words_layout"

@@ -136,12 +136,12 @@ public class MainActivity extends AppCompatActivity
    * @param passphrase instance to be added or updated.
    */
   @Override
-  public void updatePassphrase(Passphrase passphrase) {
+  public void updatePassphrase(Passphrase passphrase, boolean regenerate, int length) {
     refreshSignIn(() -> {
       if (passphrase.getId() == 0) {
         viewModel.addPassphrase(passphrase);
       } else {
-        viewModel.updatePassphrase(passphrase);
+        viewModel.updatePassphrase(passphrase, regenerate, length);
       }
     });
   }
