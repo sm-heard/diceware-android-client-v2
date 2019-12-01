@@ -45,6 +45,8 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
+  //use this as livedata example
+
   /**
    * Initializes the {@link LiveData} and {@link CompositeDisposable} containers used by this
    * instance.
